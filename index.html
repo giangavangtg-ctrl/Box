@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Dropdown Menu</title>
+    <style>
+        /* Đặt cố định loại font chữ và reset margin/padding cơ bản */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        #menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Thuộc tính cho các phần tử trong danh sách (li) */
+        #menu li {
+            list-style: none;         /* Bỏ ký hiệu đánh dấu đầu dòng */
+            position: relative;       /* Cho phép danh sách con đặt cạnh nó */
+            width: 100px;             /* Cố định chiều rộng */
+            height: 30px;             /* Cố định chiều cao */
+            padding: 0 20px;          /* Cố định lề trái và phải */
+            background-color: black;  /* Đổi nền sang màu đen */
+            line-height: 30px;        /* Cố định chiều cao dòng chữ */
+            cursor: pointer;          /* Đổi con trỏ sang hình bàn tay */
+            border-bottom: 1px solid #333; /* Thêm viền dưới để phân tách các mục */
+        }
+
+        /* Thuộc tính dành cho các liên kết bên trong (thẻ a) */
+        #menu li a {
+            text-decoration: none;    /* Bỏ gạch chân */
+            color: white;             /* Đổi chữ sang màu trắng */
+            display: block;           /* Phủ kín diện tích thẻ li */
+        }
+
+        /* Đổi màu nền khi đưa chuột qua mục chọn (Hover) */
+        #menu li:hover {
+            background-color: #555;   /* Màu xám khi hover */
+        }
+
+        /* Thuộc tính cho danh sách con (Menu cấp 2) */
+        #menu ul ul {
+            position: absolute;       /* Cố định vị trí tương đối với phần tử cha */
+            top: 0;
+            /* Lưu ý: left = width (100px) + padding-left (20px) + padding-right (20px) = 140px. 
+               Để 140px giúp menu con dính sát vào menu cha, tránh bị mất hover khi di chuột sang. */
+            left: 140px;              
+            visibility: hidden;       /* Ẩn danh sách con mặc định */
+        }
+
+        /* Hiển thị danh sách con khi hover vào phần tử cha */
+        #menu li:hover > ul {
+            visibility: visible;      /* Hiện danh sách con */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cấu trúc HTML của Menu -->
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Sản phẩm <span>&raquo;</span></a>
+                <!-- Danh sách con -->
+                <ul>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Máy tính</a></li>
+                    <li><a href="#">Phụ kiện</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Dịch vụ <span>&raquo;</span></a>
+                <!-- Danh sách con -->
+                <ul>
+                    <li><a href="#">Bảo hành</a></li>
+                    <li><a href="#">Sửa chữa</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
